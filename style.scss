@@ -8,6 +8,45 @@ variables
     $lightgray: rgba(255,255,255,0.4);
     $white: #fff;
     $transition: .4s ease;
+    $padding: 50px 0;
+/*************************
+mixins
+*************************/
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+@mixin btn {
+    color: $darkgray;
+    background: rgba($color: $yellow, $alpha: .9);
+    padding: 15px 30px;
+    margin: 30px 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    @media (max-width: 767px) {
+        padding: 10px 20px;    }
+    &:hover {
+        background: $yellow;
+        transition: $transition;
+        cursor: pointer;
+    }
+}
+@mixin line {
+    &::after {
+        display: block;
+        content: "";
+        border: none;
+        height: 1px;
+        width: 100%;
+        margin: 50px 0;
+        background: $lightgray;
+    }
+}
 /*************************
 basic styles
 *************************/
@@ -21,4 +60,210 @@ body {
     background: $gray;
     line-height: 1.7;
     font-size: 16px;
+}
+h2 {
+    font-weight: 900;
+    color: $white;
+}
+p {
+    color: rgba($color: $lightgray, $alpha: .6);
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $gray;
+    &:hover {
+        color: $gray;
+        opacity: .7;
+        transition: $transition;
+    }
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    @media (max-width: 767px){
+        width: 90%;
+    }
+}
+/*************************
+header
+*************************/
+header {
+    background: $yellow linear-gradient(rgba(255,255,255,0.15),rgba(255,255,255,0.15));
+    .container {
+        @include flex(space-evenly, center, column);
+        ul {
+            @include flex(space-between, center, row);
+            margin-top: 20px;
+            li {
+                margin: 0 30px;
+                @media (max-width: 767px){
+                    margin: 5px;
+                }
+                a {
+                    font-size: .8rem;
+                    font-weight: 500;
+                    letter-spacing: 2px;
+                }
+            }
+        }
+        hgroup {
+            text-align: center;
+            margin: 50px 0;
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 2px;
+                @media (max-width: 767px){
+                    font-size: 2rem;
+                }
+            }
+            h3 {
+                font-weight: 400;
+            }
+        }
+        img {
+            width: 100%;
+            border: 20px solid rgba($color: $lightgray, $alpha: .6);
+            border-bottom: none;
+        }
+    }
+}
+/*************************
+about
+*************************/
+.about {
+    @extend .container;
+    @include flex(space-between, center, row);
+    padding: $padding;
+    text-align: center;
+    article {
+        flex: 0 0 30%;
+        @media (max-width: 767px) {
+            flex: 100%;
+            padding-top: 20px;
+        }
+        h2 {
+            margin-bottom: 30px;
+            @media (max-width: 767px){
+                font-size: 2rem;
+            }
+        }
+        button {
+            @include btn;
+        }
+    }
+    @include line;
+}
+/*************************
+portfolio
+*************************/
+.portfolio {
+    text-align: center;
+    h2 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+    & > p {
+        margin-bottom: 30px
+    }
+    article {
+        // padding: 50px 0;
+        @extend .container;
+        text-align: center;
+        @include flex(space-between, center, row);
+        div {
+            flex: 0 0 22%;
+            @media (max-width: 767px) {
+                flex: 100%;
+                padding-top: 30px;
+            }
+            img {
+                width: 100%;
+            }
+            h3 {
+                color: $white;
+                font-size: 1.3rem;
+            }
+            button {
+                @include btn;
+            }
+        }
+        @include line;
+    }
+}
+/*************************
+contact
+*************************/
+.contact {
+    @extend .container;
+    padding: 50px 0;
+    text-align: center;
+    h2 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+    p {
+        padding: 20px;
+    }
+    form {
+        width: 50%;
+        margin: 10px auto;
+        @include flex(space-between, flex-start, column);
+        @media (max-width: 767px) {
+            width: 90%;
+        }
+        input, textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: none;
+            background: $darkgray;
+            color: $lightgray;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            &::placeholder {
+                font-family: 'Pontano Sans', sans-serif;
+            }
+        }
+        
+    }
+    button {
+        @include btn;
+        margin-top: 0;
+    }
+}
+.git {
+    @extend .container;
+    text-align: center;
+    h2 {
+        font-size: 3rem;
+    }
+    p {
+        padding: 20px 0;
+    }
+    .icons {
+        padding: 20px;
+        i {
+            background: $yellow;
+            padding: 10px;
+            margin: 0 20px;
+            font-size: 2rem;
+            @media (max-width: 767px) {
+                margin: 0 10px;
+            }
+        }
+    }
+    hr {
+        margin: 30px 0;
+    }
+    p:last-child {
+        a {
+            color: $lightgray;
+        }
+    }
 }

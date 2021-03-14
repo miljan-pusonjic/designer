@@ -1,20 +1,457 @@
-@import url('https://fonts.googleapis.com/css?family=Pontano+Sans&display=swap');
-:root {
-    --gray: #333333;
-    --darkgray: #2e2e2e;
-    --yellow: #f3cd52;
-    --lightgray: rgba(255,255,255,0.4);
-    --white: #fff;
-    --transition: .4s ease;
-}
+@import url("https://fonts.googleapis.com/css?family=Pontano+Sans&display=swap");
+/*************************
+variables
+*************************/
+/*************************
+mixins
+*************************/
+/*************************
+basic styles
+*************************/
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 body {
-    font-family: 'Pontano Sans', sans-serif;
-    background: var(--gray);
-    line-height: 1.7;
-    font-size: 16px;
+  font-family: 'Pontano Sans', sans-serif;
+  background: #333333;
+  line-height: 1.7;
+  font-size: 16px;
 }
+
+h2 {
+  font-weight: 900;
+  color: #fff;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+a:hover {
+  color: #333333;
+  opacity: .7;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.container, .about, .portfolio article, .contact, .git {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .container, .about, .portfolio article, .contact, .git {
+    width: 90%;
+  }
+}
+
+/*************************
+header
+*************************/
+header {
+  background: #f3cd52 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(255, 255, 255, 0.15)));
+  background: #f3cd52 linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+}
+
+header .container, header .about, header .portfolio article, .portfolio header article, header .contact, header .git {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .container ul, header .about ul, header .portfolio article ul, .portfolio header article ul, header .contact ul, header .git ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 20px;
+}
+
+header .container ul li, header .about ul li, header .portfolio article ul li, .portfolio header article ul li, header .contact ul li, header .git ul li {
+  margin: 0 30px;
+}
+
+@media (max-width: 767px) {
+  header .container ul li, header .about ul li, header .portfolio article ul li, .portfolio header article ul li, header .contact ul li, header .git ul li {
+    margin: 5px;
+  }
+}
+
+header .container ul li a, header .about ul li a, header .portfolio article ul li a, .portfolio header article ul li a, header .contact ul li a, header .git ul li a {
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+header .container hgroup, header .about hgroup, header .portfolio article hgroup, .portfolio header article hgroup, header .contact hgroup, header .git hgroup {
+  text-align: center;
+  margin: 50px 0;
+}
+
+header .container hgroup h1, header .about hgroup h1, header .portfolio article hgroup h1, .portfolio header article hgroup h1, header .contact hgroup h1, header .git hgroup h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 767px) {
+  header .container hgroup h1, header .about hgroup h1, header .portfolio article hgroup h1, .portfolio header article hgroup h1, header .contact hgroup h1, header .git hgroup h1 {
+    font-size: 2rem;
+  }
+}
+
+header .container hgroup h3, header .about hgroup h3, header .portfolio article hgroup h3, .portfolio header article hgroup h3, header .contact hgroup h3, header .git hgroup h3 {
+  font-weight: 400;
+}
+
+header .container img, header .about img, header .portfolio article img, .portfolio header article img, header .contact img, header .git img {
+  width: 100%;
+  border: 20px solid rgba(255, 255, 255, 0.6);
+  border-bottom: none;
+}
+
+/*************************
+about
+*************************/
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.about article {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+}
+
+@media (max-width: 767px) {
+  .about article {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    padding-top: 20px;
+  }
+}
+
+.about article h2 {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .about article h2 {
+    font-size: 2rem;
+  }
+}
+
+.about article button {
+  color: #2e2e2e;
+  background: rgba(243, 205, 82, 0.9);
+  padding: 15px 30px;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .about article button {
+    padding: 10px 20px;
+  }
+}
+
+.about article button:hover {
+  background: #f3cd52;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.about::after {
+  display: block;
+  content: "";
+  border: none;
+  height: 1px;
+  width: 100%;
+  margin: 50px 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/*************************
+portfolio
+*************************/
+.portfolio {
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.portfolio > p {
+  margin-bottom: 30px;
+}
+
+.portfolio article {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.portfolio article div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 22%;
+          flex: 0 0 22%;
+}
+
+@media (max-width: 767px) {
+  .portfolio article div {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    padding-top: 30px;
+  }
+}
+
+.portfolio article div img {
+  width: 100%;
+}
+
+.portfolio article div h3 {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.portfolio article div button {
+  color: #2e2e2e;
+  background: rgba(243, 205, 82, 0.9);
+  padding: 15px 30px;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .portfolio article div button {
+    padding: 10px 20px;
+  }
+}
+
+.portfolio article div button:hover {
+  background: #f3cd52;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.portfolio article::after {
+  display: block;
+  content: "";
+  border: none;
+  height: 1px;
+  width: 100%;
+  margin: 50px 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/*************************
+contact
+*************************/
+.contact {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.contact p {
+  padding: 20px;
+}
+
+.contact form {
+  width: 50%;
+  margin: 10px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .contact form {
+    width: 90%;
+  }
+}
+
+.contact form input, .contact form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: none;
+  background: #2e2e2e;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.contact form input::-webkit-input-placeholder, .contact form textarea::-webkit-input-placeholder {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+.contact form input:-ms-input-placeholder, .contact form textarea:-ms-input-placeholder {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+.contact form input::-ms-input-placeholder, .contact form textarea::-ms-input-placeholder {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+.contact form input::placeholder, .contact form textarea::placeholder {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+.contact button {
+  color: #2e2e2e;
+  background: rgba(243, 205, 82, 0.9);
+  padding: 15px 30px;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .contact button {
+    padding: 10px 20px;
+  }
+}
+
+.contact button:hover {
+  background: #f3cd52;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.git {
+  text-align: center;
+}
+
+.git h2 {
+  font-size: 3rem;
+}
+
+.git p {
+  padding: 20px 0;
+}
+
+.git .icons {
+  padding: 20px;
+}
+
+.git .icons i {
+  background: #f3cd52;
+  padding: 10px;
+  margin: 0 20px;
+  font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  .git .icons i {
+    margin: 0 10px;
+  }
+}
+
+.git hr {
+  margin: 30px 0;
+}
+
+.git p:last-child a {
+  color: rgba(255, 255, 255, 0.4);
+}
+/*# sourceMappingURL=style.css.map */
